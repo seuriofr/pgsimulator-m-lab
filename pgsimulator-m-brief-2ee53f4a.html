@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PG模拟器 · 专题介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f2f4f7;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #1f2a3f;
+            line-height: 1.6;
+            padding: 2rem 1.5rem;
+        }
+
+        .page {
+            max-width: 1120px;
+            margin: 0 auto;
+        }
+
+        /* ---------- hero ---------- */
+        .hero {
+            background: linear-gradient(145deg, #ffffff 0%, #f9fbfd 100%);
+            border: 1px solid #e2e8f0;
+            border-radius: 32px;
+            padding: 2.8rem 2rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.02), 0 2px 6px rgba(0, 0, 0, 0.02);
+            margin-bottom: 2.2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -60px;
+            right: -60px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(0,102,255,0.03) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 550;
+            letter-spacing: -0.01em;
+            color: #0b1a2b;
+            margin-bottom: 0.6rem;
+            line-height: 1.2;
+        }
+
+        .hero .sub {
+            font-size: 1.05rem;
+            color: #3c4b5e;
+            max-width: 640px;
+            border-left: 3px solid #3b82f6;
+            padding-left: 1.2rem;
+            margin-top: 0.3rem;
+        }
+
+        /* ---------- card grid / sections ---------- */
+        .intro-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.8rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border: 1px solid #e6ecf3;
+            border-radius: 24px;
+            padding: 1.8rem 2rem;
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.01), 0 1px 4px rgba(0, 0, 0, 0.02);
+            transition: box-shadow 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.04);
+        }
+
+        .card h2 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            margin-bottom: 0.75rem;
+            color: #16212e;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card h2 span {
+            display: inline-block;
+            background: #eef2f8;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            padding: 0.1rem 0.8rem;
+            font-weight: 400;
+            color: #2b3b50;
+            letter-spacing: 0.02em;
+        }
+
+        .card p {
+            margin-bottom: 0.8rem;
+            color: #2d3b4d;
+        }
+
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin: 1rem 0 0.2rem 0;
+        }
+
+        .feature-list li {
+            padding: 0.25rem 0 0.25rem 1.6rem;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="%233b82f6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>') left center no-repeat;
+            background-size: 14px;
+            margin-bottom: 0.3rem;
+            color: #253241;
+        }
+
+        .stat-badge {
+            display: inline-flex;
+            background: #e9edf4;
+            border-radius: 40px;
+            padding: 0.2rem 1rem;
+            font-size: 0.8rem;
+            color: #1e2c3c;
+            margin-top: 0.2rem;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #dbe1ea;
+            margin: 1.6rem 0 0.8rem 0;
+            opacity: 0.6;
+        }
+
+        /* ---------- footer / final CTA ---------- */
+        .footer-zone {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 28px;
+            padding: 2rem 2rem 1.8rem;
+            text-align: center;
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.01);
+            margin-top: 0.8rem;
+        }
+
+        .footer-zone p {
+            font-size: 1.05rem;
+            color: #1f2a3f;
+            max-width: 580px;
+            margin: 0 auto 0.8rem auto;
+        }
+
+        .footer-zone a {
+            color: #1f3a6b;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1.5px solid #b9cae0;
+            transition: border-color 0.15s, color 0.15s;
+        }
+
+        .footer-zone a:hover {
+            border-bottom-color: #3b82f6;
+            color: #0b1f3a;
+        }
+
+        .footer-note {
+            font-size: 0.9rem;
+            color: #4f6075;
+            margin-top: 0.7rem;
+            border-top: 1px dashed #dce3ed;
+            padding-top: 1rem;
+        }
+
+        /* ---------- responsive ---------- */
+        @media (max-width: 640px) {
+            body {
+                padding: 1.4rem 0.8rem;
+            }
+            .hero {
+                padding: 2rem 1.2rem;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero .sub {
+                font-size: 0.95rem;
+                padding-left: 0.9rem;
+            }
+            .card {
+                padding: 1.4rem 1.2rem;
+            }
+            .footer-zone {
+                padding: 1.6rem 1rem;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .intro-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 1.8rem;
+            }
+            .intro-grid .card:first-child {
+                grid-column: 1 / 2;
+            }
+            .intro-grid .card:nth-child(2) {
+                grid-column: 2 / 3;
+            }
+            .intro-grid .card:last-child {
+                grid-column: 1 / 3;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .intro-grid {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+            .intro-grid .card:last-child {
+                grid-column: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <!-- hero -->
+    <header class="hero">
+        <h1>PG模拟器 · 功能与场景</h1>
+        <div class="sub">面向开发与测试场景的轻量级模拟环境，降低依赖成本，提升迭代效率。</div>
+    </header>
+
+    <!-- 三段式卡片 + 额外细节 -->
+    <div class="intro-grid">
+        <section class="card">
+            <h2>站点背景 <span>v1.2</span></h2>
+            <p><strong>PG模拟器</strong> 最初为个人项目孵化，后逐步整理为公开工具站点。它并非完整的数据库发行版，而是提供一组贴合 PostgreSQL 行为模式的模拟接口与数据构造能力。</p>
+            <p>团队在早期集成测试中频繁遇到临时数据库搭建慢、环境不一致的问题，因此采用行为模拟的思路来缩短准备时间。站点内的核心模块覆盖了常见查询模式与返回结构，并持续根据社区反馈校准语义。</p>
+            <div class="stat-badge">基于 PG 14 / 15 行为参考</div>
+        </section>
+
+        <section class="card">
+            <h2>可信说明 <span>透明度</span></h2>
+            <p>站内所有模拟逻辑均以<strong>公开的 PostgreSQL 文档与标准 SQL 行为</strong>为基准构建，不包含闭源黑盒组件。每个接口的返回结构、数据类型映射和错误提示都附有简短参考说明。</p>
+            <p>模拟器不会持久化用户传入的查询或数据，所有交互仅在当前会话上下文中计算。代码仓库的部分模块以开源形式发布，便于同行审查与改进。</p>
+            <hr>
+            <ul class="feature-list" style="margin-top:0.2rem;">
+                <li>类型映射参考自 PG 系统表</li>
+                <li>事务隔离等级模拟为 Read Committed</li>
+                <li>支持常见 JSON / 数组 / 范围类型</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2>适用场景 <span>轻量·快速</span></h2>
+            <p>适用于前端原型联调、单元测试的数据层 Mock、CI 流水线中无法快速拉起真实 PG 实例的环境。也可作为学习基础 SQL 行为时的一种轻交互辅助。</p>
+            <p>对于生产环境或需要严格 ACID 保障的用例，仍建议使用官方 PostgreSQL 实例。模拟器在语法覆盖上聚焦于 DML 和常见查询模式，不涉及物理复制、WAL 或自定义函数扩展。</p>
+            <p style="margin-top:0.8rem; font-size:0.92rem; color:#3a4b60;">若需体验完整功能，可直接试用站点中的在线沙盒。</p>
+        </section>
+    </div>
+
+    <!-- 尾页访问提示 / 链接嵌入 -->
+    <div class="footer-zone">
+        <p>想要进一步了解模拟器的设计思路与操作方式？可以前往 <a href="https://pgsimulator-m.com">PG模拟器</a> 查阅交互说明与接口文档。</p>
+        <p style="font-size:0.95rem; margin-top:0.2rem;">专题页仅作概要介绍，详细用例与版本日志均在主站持续更新。</p>
+        <div class="footer-note">
+            <span>站点定位：辅助开发工具 · 非生产级数据库</span>
+        </div>
+    </div>
+</div>
+</body>
+</html>
